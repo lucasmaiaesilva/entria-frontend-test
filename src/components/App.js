@@ -14,7 +14,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1> ToDo list </h1>
+        <h1 style={{color: 'rgb(102, 102, 102)'}}> ToDo list </h1>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} placeholder='add your task in here ...' value={this.state.text} />
           <button type='submit'> + </button>
