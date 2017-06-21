@@ -11,7 +11,7 @@ const Title = ({text}) => (
       {text}
     </h1>
     <p className='header__description'>
-      feito por Lucas Maia e Silva - github.com/lucasmaiaesilva
+      made by Lucas Maia e Silva - github.com/lucasmaiaesilva
     </p>
   </div>
 )
