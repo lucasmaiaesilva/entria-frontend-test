@@ -7,11 +7,12 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      items: [],
+      items: [{task: 'missao comprida', completed: true}],
       text: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleSubmit (e) {
@@ -29,6 +30,23 @@ class App extends Component {
     this.setState({text: e.target.value})
   }
 
+  // removeItem (e) {
+  //   const newArray = this.state.items
+  //   newArray.splice(e.target.id, 1)
+  //   this.setState({
+  //     items: newArray
+  //   })
+  // }
+
+  handleClick (e) {
+    const newArray = this.state.items
+    // toogle
+    newArray[e.target.id].completed = !newArray[e.target.id].completed
+    this.setState({
+      items: newArray
+    })
+  }
+
   render () {
     return (
       <div className='app'>
@@ -38,7 +56,10 @@ class App extends Component {
           handleChange={this.handleChange}
           value={this.state.text}
         />
-        <TodoList items={this.state.items} />
+        <TodoList
+          items={this.state.items}
+          handleClick={this.handleClick}
+        />
       </div>
     )
   }

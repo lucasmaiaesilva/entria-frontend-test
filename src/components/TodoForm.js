@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const TodoForm = ({handleSubmit, handleChange, value}) => (
-  <form onSubmit={handleSubmit}>
+  <form className='add-task' onSubmit={handleSubmit}>
     <input
+      className='add-task__input'
       onChange={handleChange}
       placeholder='add your task in here ...'
       value={value}
+      required
     />
-    <button type='submit'> + </button>
+    <button className='add-task__submit' type='submit'> + </button>
   </form>
 )
 

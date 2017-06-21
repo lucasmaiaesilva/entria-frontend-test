@@ -15,7 +15,7 @@ describe('<TodoList />', () => {
       completed: false
     }
   ]
-  const wrapper = shallow(<TodoList items={primProps} />)
+  const wrapper = shallow(<TodoList items={primProps} handleClick={() =>{}} />)
   it('render without crash', () => {
     expect(wrapper).to.exist
   })
