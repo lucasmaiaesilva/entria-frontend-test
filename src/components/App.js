@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Title from './Title'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
 
-class App extends React.Component {
+class App extends Component {
   constructor () {
     super()
     this.state = {
@@ -9,21 +12,6 @@ class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  render () {
-    return (
-      <div>
-        <h1 style={{color: 'rgb(102, 102, 102)'}}> ToDo list </h1>
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} placeholder='add your task in here ...' value={this.state.text} />
-          <button type='submit'> + </button>
-        </form>
-        <div>
-          {this.state.items.map((item, index) => <div key={index}><span>{item.task} - {String(item.completed)}</span></div>)}
-        </div>
-      </div>
-    )
   }
 
   handleSubmit (e) {
@@ -39,6 +27,20 @@ class App extends React.Component {
 
   handleChange (e) {
     this.setState({text: e.target.value})
+  }
+
+  render () {
+    return (
+      <div className='app'>
+        <Title text='To Do List' />
+        <TodoForm
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          value={this.state.text}
+        />
+        <TodoList items={this.state.items} />
+      </div>
+    )
   }
 }
 
